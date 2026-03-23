@@ -2,11 +2,11 @@ import type { AgentDefinition } from '@anthropic-ai/claude-agent-sdk';
 import { refactoringSuggesterPrompt } from '../prompts/index.js';
 import { RefactoringResultSchema } from '../types/index.js';
 
-export const RefactoringSuggester: AgentDefinition = {
+export const refactoringSuggester: AgentDefinition = {
   name: 'refactoring-suggester',
-  description: 'Identifies opportunities to improve code structure, apply modern design patterns, and increase clarity. Use this agent to get suggestions for refactoring.',
+  description: 'Identifies opportunities to improve code structure and modernize patterns.',
   prompt: refactoringSuggesterPrompt,
-  tools: [],
-  model: 'claude-3-5-sonnet-20240620',
+  tools: ['Read', 'Grep', 'Glob', 'Skill'],
+  model: 'inherit',
   outputSchema: RefactoringResultSchema,
 };
